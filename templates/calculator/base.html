@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numerical root finder</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static '/images/aastlogo.png' %}">
+    <!-- CSS property to create interactive
+    calculator interface -->
+    <style>
+            sup {
+        vertical-align: super;
+        font-size: small;
+    }
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+
+        .frac > span {
+            display: block;
+            padding: 0.1em;
+        }
+
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+
+        .frac span.symbol {
+            display: none;
+        }
+
+        /* Style to set the title of calculator */
+        .cell {
+            width: 10vw;
+        }
+
+        /* Set the button style */
+        #btn {
+            width: 100%;
+            height: 60px;
+            font-size: 35px;
+        }
+
+        input[type="button"] {
+            background-color: green;
+            color: black;
+            border: solid black 2px;
+            width: 100%
+        }
+
+        input[type="submit"] {
+            background-color: green;
+            color: black;
+            border: solid black 2px;
+            width: 100%
+        }
+
+        /* Set input textarea */
+        input[type="text"] {
+            background-color: white;
+            border: solid black 2px;
+            width: 100%
+        }
+    </style>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <script>
+
+        /* Creating function in HTML for backspace operation */
+        function backspace(calc) {
+            size = calc.display.value.length;
+            calc.display.value = calc.display.value.substring(0, size - 1);
+        }
+    </script>
+      <script src="{% static 'js/math.js' %}"></script>
+
+  <script src="{% static 'js/plotly-2.6.3.min.js' %}"></script>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static '/images/aastlogo.png' %}" alt="" width="45" height="45"
+                 class="d-inline-block align-text-top">
+            Muller method for finding roots numerically project
+        </a>
+    </div>
+</nav>
+{% block content %}{% endblock %}
+
+
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-6 d-flex align-items-center">
+        <a href="{% url 'home' %}" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        </a>
+        <span class="text-muted">© 2021 AASTMT, Numerical methods project, DR.Ahmed Omar Hamed Mohamed</span>
+    </div>
+    <div class="col-md-4 d-flex">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static '/images/aastlogo.png' %}" alt="" width="45" height="45"
+                     class="d-inline-block align-text-top">
+            </a>
+            <a data-bs-toggle="modal" href="#participate" role="button">Team github</a>
+
+
+        </div>
+    </div>
+</footer>
+
+
+<!-- Modal -->
+{% include 'calculator/participate.html' %}
+</body>

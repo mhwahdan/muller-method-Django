@@ -1,0 +1,171 @@
+<div class="container" style="margin-top: 5%;">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <p>{{ equation }}</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            Numerical estimation using <cite title="Source Title">muller method</cite>
+        </figcaption>
+                <blockquote class="blockquote">
+            <p>After {{ number }} iterations</p>
+        </blockquote>
+                <blockquote class="blockquote">
+            <p>Root = {{ Answer }}</p>
+        </blockquote>
+                <blockquote class="blockquote">
+            <p>Error = {{ Error }}</p>
+        </blockquote>
+    </figure>
+</div>
+<div class="container" id="plot"></div>
+{% for iteration in solution %}
+    <div class="container">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+                <p>iteration {{ iteration.number }}</p>
+            </blockquote>
+        </figure>
+        <p class="lead text-center">
+            p0 = {{ iteration.p0 }} &#x21d2; F(p0) = {{ iteration.fp0 }}
+            <br>
+            p1 = {{ iteration.p1 }} &#x21d2; F(p1) = {{ iteration.fp1 }}
+            <br>
+            p2 = {{ iteration.p2 }} &#x21d2; F(p2) = {{ iteration.fp2 }}
+            <br>
+        </p>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <p class="lead text-start">
+                    h0 = p1 - p0 = {{ iteration.p1 }} - {{ iteration.p0 }} = {{ iteration.h0 }}
+                </p>
+            </div>
+            <div class="col-4">
+                <p class="lead text-end">
+                    h1 = p2 - p1 = {{ iteration.p2 }} - {{ iteration.p1 }} = {{ iteration.h1 }}
+                </p>
+            </div>
+        </div>
+        <div class="container" style="text-align: center">
+            <span class="lead">Ϭ0 =</span>
+            <div class="frac lead text-center">
+                <span class="lead">F(p1) - F(p0)</span>
+                <span class="lead symbol">/</span>
+                <span class="lead bottom">h0</span>
+
+            </div>
+            <span class="lead">=</span>
+            <div class="frac lead text-center">
+                <span class="lead">{{ iteration.fp1 }} - {{ iteration.fp0 }}</span>
+                <span class="symbol lead">/</span>
+                <span class="bottom lead">{{ iteration.h0 }}</span>
+            </div>
+            <span class="lead">= {{ iteration.sigma0 }}</span>
+        </div>
+    </div>
+    <div class="container" style="text-align: center">
+        <span class="lead">Ϭ1 =</span>
+        <div class="frac lead text-center">
+            <span class="lead">F(p2) - F(p1)</span>
+            <span class="lead symbol">/</span>
+            <span class="lead bottom">h1</span>
+
+        </div>
+        <span class="lead">=</span>
+        <div class="frac lead text-center">
+            <span class="lead">{{ iteration.fp2 }} - {{ iteration.fp1 }}</span>
+            <span class="symbol lead">/</span>
+            <span class="bottom lead">{{ iteration.h1 }}</span>
+        </div>
+        <span class="lead">= {{ iteration.sigma1 }}</span>
+    </div>
+    </div>
+    <div class="container" style="text-align: center">
+        <div class="container" style="text-align: center">
+            <span class="lead">a = </span>
+            <div class="frac lead text-center">
+                <span class="lead">Ϭ1 - Ϭ0</span>
+                <span class="symbol lead">/</span>
+                <span class="bottom lead">h1 + h0</span>
+
+            </div>
+            <span class="lead">=</span>
+            <div class="frac lead text-center">
+                <span class="lead">{{ iteration.sigma1 }} - {{ iteration.sigma0 }}</span>
+                <span class="symbol lead">/</span>
+                <span class="bottom lead">{{ iteration.h1 }} + {{ iteration.h0 }}</span>
+            </div>
+            <span class="lead">= {{ iteration.a }}</span>
+        </div>
+
+    </div>
+    <div class="container" style="text-align: center">
+        <p class="lead text-center">b = a x h1 + Ϭ1 = {{ iteration.a }} x {{ iteration.h1 }}
+            + {{ iteration.sigma1 }} = {{ iteration.b }}</p>
+    </div>
+    <div class="container">
+        <p class="lead text-center">
+            c = F(p2) = {{ iteration.c }}
+        </p>
+    </div>
+    </div>
+    <div class="container" style="text-align: center">
+        <div class="container" style="text-align: center">
+            <span class="lead">p3 =</span>
+            <div class="frac lead text-center">
+                <span class="lead">-2c</span>
+                <span class="symbol lead">/</span>
+                <span class="bottom lead">b+sign(b)(b<sup>2</sup> - 4ac)<sup>0.5</sup></span>
+            </div>
+            <span class="lead">=</span>
+            <div class="frac lead text-center">
+                <span class="lead">2 * {{ iteration.c }}</span>
+                <span class="symbol lead">/</span>
+                <span class="bottom lead">{{ iteration.b }}+sign({{ iteration.b }})({{ iteration.b }}<sup>2</sup> - 4 * {{ iteration.a }} * {{ iteration.c }})<sup>0.5</sup></span>
+            </div>
+            <span class="lead">= {{ iteration.p3 }}</span>
+        </div>
+
+    </div>
+            <div class="container" style="text-align: center; margin-top: 3%;">
+        <p class="lead text-center">F(p3) = {{ iteration.fp3 }}</p>
+    </div>
+
+        <div class="container" style="text-align: center; margin-top: 3%;">
+        <p class="lead text-center">ℇ = | p3 - p2 | = | {{ iteration.p3 }} - {{ iteration.p2 }} | =  {{ iteration.error }}</p>
+    </div>
+    <div>
+<hr>
+</div>
+
+{% endfor %}
+
+<script>
+  function draw() {
+    try {
+      // compile the expression once
+      const expression = '{{ equation }}'
+      const expr = math.compile(expression)
+
+      // evaluate the expression repeatedly for different values of x
+      const xValues = math.range({{ Answer }}-10, {{ Answer }} + 10, 0.5).toArray()
+      const yValues = xValues.map(function (x) {
+        return expr.evaluate({x: x})
+      })
+
+      // render the plot using plotly
+      const trace1 = {
+        x: xValues,
+        y: yValues,
+        type: 'scatter'
+      }
+      const data = [trace1]
+      Plotly.newPlot('plot', data)
+    }
+    catch (err) {
+      console.error(err)
+      alert(err)
+    }
+  }
+  draw()
+</script>
