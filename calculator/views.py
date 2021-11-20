@@ -2,7 +2,7 @@ from django.shortcuts import render
 from calculator.muller_method import evaluate
 
 # Create your views here.
-blacklist = ['c', 'l', 's', 't', '\u03C0', '\u03C4', 'e', 'x']
+blacklist = ['c', 'l', 's', 't', '\u03C0', '\u03C4', 'e', '$']
 
 substitution = {
     '!' : 'factorial',
