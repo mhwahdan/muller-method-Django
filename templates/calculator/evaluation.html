@@ -19,6 +19,9 @@
 </div>
 <div class="container" id="plot"></div>
 {% for iteration in solution %}
+        <div>
+<hr>
+</div>
     <div class="container">
         <figure class="text-center">
             <blockquote class="blockquote">
@@ -134,9 +137,7 @@
         <div class="container" style="text-align: center; margin-top: 3%;">
         <p class="lead text-center">ℇ =  {{ iteration.error }}</p>
     </div>
-    <div>
-<hr>
-</div>
+
 
 {% endfor %}
 
@@ -159,7 +160,7 @@
         type: 'scatter'
       }
       const data = [trace1];
-      Plotly.newPlot('plot', data);
+      Plotly.newPlot('plot', data)
     }
     catch (err) {
       console.error(err)
