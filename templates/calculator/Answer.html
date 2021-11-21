@@ -1,18 +1,19 @@
-{% extends 'calculator/base.html' %}
 {% load static %}
-{% block content %}
-{% include 'calculator/calculator.html' %}
-    {% if has_solution %}
-        {% include 'calculator/evaluation.html' %}
-    {% else %}
-         <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="{% static 'images/aastlogo.png' %}" alt="" width="72" height="57">
-    <h1 class="display-5 fw-bold">Muller method cannot solve this equation</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Two main problems may arise while implementing the Muller Method.
-First problem is the fact that the three points used for interpolating the function may have the same function values. (that is f(x0) = f(x1) = f(x2)). When this condition is applied to the code given in part 2, it can easily be seen that the Muller Algorithm fails. To avoid this failure in each step the values of f(x0),f(x1) and f(x2) are checked if they are equal the points are perturbed.
-          The second problem arises when the points (x0 ,f(x0)) (x1 ,f(x1)) and (x2 ,f(x2)) are on the same line. When this happens the algorithm jumps to Secant method begins by finding real root.
-</p>
+{% if has_solution %}
+    {% include 'calculator/evaluation.html' %}
+{% else %}
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{% static 'images/aastlogo.png' %}" alt="" width="72" height="57">
+        <h1 class="display-5 fw-bold">Muller method cannot solve this equation</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Two main problems may arise while implementing the Muller Method.
+                First problem is the fact that the three points used for interpolating the function may have the same
+                function values. (that is f(x0) = f(x1) = f(x2)). When this condition is applied to the code given in
+                part 2, it can easily be seen that the Muller Algorithm fails. To avoid this failure in each step the
+                values of f(x0),f(x1) and f(x2) are checked if they are equal the points are perturbed.
+                The second problem arises when the points (x0 ,f(x0)) (x1 ,f(x1)) and (x2 ,f(x2)) are on the same line.
+                When this happens the algorithm jumps to Secant method begins by finding real root.
+            </p>
+        </div>
     </div>
-    {% endif %}
-{% endblock content %}
+{% endif %}
