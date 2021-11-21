@@ -5,12 +5,13 @@ from calculator.muller_method import evaluate
 blacklist = ['c', 'l', 's', 't', '\u03C0', '\u03C4', 'e', '$']
 
 substitution = {
-    '!' : 'factorial',
+    '!': 'factorial',
     '\u03C0': 'pi',
     '\u03C4': 'tau',
     'l': 'log10',
     'z': 'log',
 }
+
 
 def index(request):
     return render(request, 'calculator/index.html')
@@ -32,7 +33,8 @@ def calculate(request):
         if equation[i] in substitution.keys():
             equation[i] = substitution[equation[i]]
     for i in range(1, len(equation)):
-        if equation[i] in substitution.values() and (equation[i - 1] in substitution.values() or equation[i - 1] == 'e'):
+        if equation[i] in substitution.values() and (equation[i - 1] in substitution.values()
+                                                     or equation[i - 1] == 'e'):
             equation.insert(i, '*')
     equation = ''.join(equation).replace('^', '**')
     try:
@@ -42,10 +44,10 @@ def calculate(request):
             p2=float(request.GET["point3"]),
             equation=equation,
             error=float(request.GET["error"]),
-            iterations=float(request.GET["iterations"]),
+            iterations=int(request.GET["iterations"]),
             precision=int(request.GET["precision"])
         )
-    except Exception as exp:
+    except ZeroDivisionError:
         solution = {}
     context = {
         "solution": solution,
