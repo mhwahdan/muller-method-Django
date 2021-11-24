@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-zkx@8r@+%=*k!q9iae!m-o-yaeho&%hjb28#mi_jx#gv@ag42*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['muller-calculator.herokuapp.com']
+ALLOWED_HOSTS = ['https://muller-calculator.herokuapp.com/']
 
 
 # Application definition
