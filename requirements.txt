@@ -4,3 +4,4 @@ numpy
 gunicorn
 dj-database-url
 psycopg2
+django-heroku
