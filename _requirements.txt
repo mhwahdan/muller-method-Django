@@ -1,3 +1,7 @@
 Django
 matplotlib
 numpy
+gunicorn
+dj-database-url
+whitenoise
+psycopg2
