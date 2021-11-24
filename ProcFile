@@ -1,1 +1,1 @@
-web: gunicorn muller_method/muller_method.wsgi
+web: gunicorn muller_method.wsgi
