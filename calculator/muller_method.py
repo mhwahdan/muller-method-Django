@@ -36,7 +36,7 @@ def iterate(p0: complex, p1: complex, p2: complex, equation, precision: int, ite
     str_p3 = '(' + str(p3.real) + ('+' if p3.imag > 0 else '-') + str(p3.imag) + 'j)'
     fp3 = eval(equation.replace('$', str_p3))
     fp3 = round(fp3.real, precision) + round(fp3.imag, precision) * 1j
-    error = round(sqrt((p3.real - p2.real)**2 + (p3.imag - p2.imag)**2).real, precision)
+    error = round(sqrt((p3.real - p2.real) ** 2 + (p3.imag - p2.imag) ** 2).real, precision)
     return {
         "h0": h0.real if h0.imag == 0 else h0,
         "h1": h1.real if h1.imag == 0 else h0,

@@ -6,24 +6,24 @@
         <figcaption class="blockquote-footer">
             Numerical estimation using <cite title="Source Title">muller method</cite>
         </figcaption>
-                <blockquote class="blockquote">
+        <blockquote class="blockquote">
             <p>After {{ number }} iterations</p>
         </blockquote>
-                <blockquote class="blockquote">
+        <blockquote class="blockquote">
             <p>Root = {{ Answer }}</p>
         </blockquote>
-                <blockquote class="blockquote">
+        <blockquote class="blockquote">
             <p>Error = {{ Error }}</p>
         </blockquote>
     </figure>
 </div>
 <div class="container-fluid" id="plot"></div>
-    {% include 'calculator/table.html' %}
+{% include 'calculator/table.html' %}
 
 {% for iteration in solution %}
-        <div>
-<hr>
-        </div>
+    <div>
+        <hr>
+    </div>
     <div class="container">
         <figure class="text-center">
             <blockquote class="blockquote">
@@ -132,12 +132,12 @@
         </div>
 
     </div>
-            <div class="container" style="text-align: center; margin-top: 3%;">
+    <div class="container" style="text-align: center; margin-top: 3%;">
         <p class="lead text-center">F(p3) = {{ iteration.fp3 }}</p>
     </div>
 
-        <div class="container" style="text-align: center; margin-top: 3%;">
-        <p class="lead text-center">ℇ =  {{ iteration.error }}</p>
+    <div class="container" style="text-align: center; margin-top: 3%;">
+        <p class="lead text-center">ℇ = {{ iteration.error }}</p>
     </div>
 
 
