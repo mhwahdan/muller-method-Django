@@ -1,6 +1,34 @@
 {% load static %}
 {% if has_solution %}
     {% include 'calculator/evaluation.html' %}
+    <script>
+  function draw() {
+    try {
+      // compile the expression once
+      const expression = '{{ equation }}'
+      const expr = math.compile(expression)
+      // evaluate the expression repeatedly for different values of x
+      const xValues = math.range({{ Answer.real }}-10, {{ Answer.real }} + 10, 0.5).toArray()
+      const yValues = xValues.map(function (x) {
+        return expr.evaluate({x: x})
+      })
+        $('#plot').html('');
+      // render the plot using plotly
+      const trace1 = {
+        x: xValues,
+        y: yValues,
+        type: 'scatter'
+      }
+      const data = [trace1];
+      Plotly.newPlot('plot', data)
+    }
+    catch (err) {
+      console.error(err)
+      alert(err)
+    }
+  }
+  draw();
+</script>
 {% else %}
     <div class="px-4 py-5 my-5 text-center">
         <img class="d-block mx-auto mb-4" src="{% static 'images/aastlogo.png' %}" alt="" width="72" height="57">

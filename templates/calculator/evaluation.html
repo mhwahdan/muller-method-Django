@@ -17,11 +17,13 @@
         </blockquote>
     </figure>
 </div>
-<div class="container" id="plot"></div>
+<div class="container-fluid" id="plot"></div>
+    {% include 'calculator/table.html' %}
+
 {% for iteration in solution %}
         <div>
 <hr>
-</div>
+        </div>
     <div class="container">
         <figure class="text-center">
             <blockquote class="blockquote">
@@ -140,32 +142,3 @@
 
 
 {% endfor %}
-
-<script>
-  function draw() {
-    try {
-      // compile the expression once
-      const expression = '{{ equation }}'
-      const expr = math.compile(expression)
-      // evaluate the expression repeatedly for different values of x
-      const xValues = math.range({{ Answer.real }}-10, {{ Answer.real }} + 10, 0.5).toArray()
-      const yValues = xValues.map(function (x) {
-        return expr.evaluate({x: x})
-      })
-        $('#plot').html('');
-      // render the plot using plotly
-      const trace1 = {
-        x: xValues,
-        y: yValues,
-        type: 'scatter'
-      }
-      const data = [trace1];
-      Plotly.newPlot('plot', data)
-    }
-    catch (err) {
-      console.error(err)
-      alert(err)
-    }
-  }
-  draw();
-</script>
