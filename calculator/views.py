@@ -1,17 +1,8 @@
 from django.shortcuts import render
 
-from calculator.muller_method import evaluate
+from calculator.muller_method import evaluate, refactor
 
 # Create your views here.
-blacklist = ['c', 'l', 's', 't', '\u03C0', '\u03C4', 'e', '$']
-
-substitution = {
-    '!': 'factorial',
-    '\u03C0': 'pi',
-    '\u03C4': 'tau',
-    'l': 'log10',
-    'z': 'log',
-}
 
 
 def index(request):
@@ -19,25 +10,7 @@ def index(request):
 
 
 def calculate(request):
-    equation = list(request.GET["formula"].lower().replace('log', 'l').replace('ln', 'z').replace('x', '$'))
-    for i in range(0, len(equation)):
-        if i != 0 and equation[i] in blacklist and equation[i - 1] != '*' and (
-                equation[i - 1].isnumeric() or equation[i - 1] == ')'):
-            equation.insert(i, '*')
-        if equation[i] == '!' and equation[i + 1] != '(':
-            equation.insert(i + 1, '(')
-            counter = i + 2
-            while equation[counter].isnumeric() or equation[counter] != ')':
-                counter += 1
-            equation.insert(counter, ')')
-    for i in range(0, len(equation)):
-        if equation[i] in substitution.keys():
-            equation[i] = substitution[equation[i]]
-    for i in range(1, len(equation)):
-        if equation[i] in substitution.values() and (equation[i - 1] in substitution.values()
-                                                     or equation[i - 1] == 'e'):
-            equation.insert(i, '*')
-    equation = ''.join(equation).replace('^', '**')
+    equation = refactor(request.GET['formula'])
     try:
         solution = evaluate(
             p0=float(request.GET["point1"]),
