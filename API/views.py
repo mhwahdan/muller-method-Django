@@ -7,6 +7,13 @@ from calculator.muller_method import refactor, evaluate
 
 class CalculatorView(APIView):
     def get(self, request, formula, point1, point2, point3, error=None, iterations=None, precision=4):
+        point1 = float(point1)
+        point2 = float(point2)
+        point3 = float(point3)
+        if error:
+            error = float(error)
+        if iterations:
+            iterations = float(iterations)
         try:
             equation = refactor(formula)
             solution = evaluate(

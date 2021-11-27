@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['https://muller-calculator.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'API.apps.ApiConfig'
+    'API.apps.ApiConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
