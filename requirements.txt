@@ -6,4 +6,4 @@ dj-database-url
 psycopg2
 django-heroku
 djangorestframework
-rest_framework_xml
+djangorestframework-xml
