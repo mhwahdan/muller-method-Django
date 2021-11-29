@@ -8,7 +8,7 @@
                 const expression = '{{ equation }}'
                 const expr = math.compile(expression)
                 // evaluate the expression repeatedly for different values of x
-                const xValues = math.range({{ Answer.real }}-10, {{ Answer.real }} +10, 0.5).toArray()
+                const xValues = math.range({{ Answer.real }}-50, {{ Answer.real }} +50, 0.0001).toArray()
                 const yValues = xValues.map(function (x) {
                     return expr.evaluate({x: x})
                 })
@@ -20,7 +20,10 @@
                     type: 'scatter'
                 }
                 const data = [trace1];
-                Plotly.newPlot('plot', data)
+                Plotly.newPlot('plot', data, {
+                    title: 'function graph',
+                    font: {size: 18}
+                }, {responsive: true})
             } catch (err) {
                 console.error(err)
                 alert(err)
