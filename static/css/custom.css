@@ -26,13 +26,13 @@ sup {
 
 /* Style to set the title of calculator */
 .cell {
-    width: 10vw;
+    width: 30%;
 }
 
 /* Set the button style */
 #btn {
     width: 100%;
-    height: 60px;
+    height: 50%;
     font-size: 35px;
 }
 
