@@ -104,7 +104,8 @@ Since our software is a web application powered by django framework, it uses the
 <p align='center'>
 <img src='https://miro.medium.com/max/1400/0*8ZFh-CsrMi7bQG0O.jpg'></img>
 </p>
-# how does the program work in simple terms
+
+# How does the program work in simple terms
 when the user enters the url of the software in his browser, an HTTP get request is sent to the server hosting the application where the url is analyzed and routed to the correct view which renders the template and returns it to the client brwoser as an HTTP response which is rendered by the client browser HTTP renderer and dispalyed in the browser window.
 
 After the user enters the data and clicks submission an Ajax request is sent to the server which will read the inputs, find the roots and renders the steps and draws the function as html and returns them as HTTP response which is then rendered by the browser without reloading the page.
