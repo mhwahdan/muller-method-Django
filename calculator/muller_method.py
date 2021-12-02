@@ -66,7 +66,6 @@ def iterate(p0: complex, p1: complex, p2: complex, equation, precision: int, ite
         sqrt((p3.real - p2.real) ** 2 + (p3.imag - p2.imag) ** 2).real,
         precision
     )
-    abs_error = round(abs(sqrt(fp3.real ** 2 + fp3.imag ** 2).real), precision)
     return {
         "h0": adjust_complex(h0),
         "h1": adjust_complex(h1),
@@ -85,7 +84,7 @@ def iterate(p0: complex, p1: complex, p2: complex, equation, precision: int, ite
         "c": adjust_complex(c),
         "error": error,
         "number": iteration_number
-    }, abs_error
+    }
 
 
 def refactor(equation):
@@ -116,7 +115,7 @@ def refactor(equation):
 
 def evaluate(p0: complex, p1: complex, p2: complex, equation, error: float, iterations: int, precision: int):
     iteration_counter = 1
-    current_iteration, abs_error = iterate(
+    current_iteration = iterate(
         p0=p0,
         p1=p1,
         p2=p2,
@@ -126,11 +125,11 @@ def evaluate(p0: complex, p1: complex, p2: complex, equation, error: float, iter
     )
     solution = [current_iteration]
     iteration_counter = 2
-    while iteration_counter <= iterations and abs_error > error and current_iteration["p3"] != current_iteration["p2"]:
+    while iteration_counter <= iterations and current_iteration['error'] > error:
         p0 = current_iteration["p1"]
         p1 = current_iteration["p2"]
         p2 = current_iteration["p3"]
-        current_iteration, abs_error = iterate(
+        current_iteration = iterate(
             p0=p0,
             p1=p1,
             p2=p2,
@@ -140,4 +139,4 @@ def evaluate(p0: complex, p1: complex, p2: complex, equation, error: float, iter
         )
         solution.append(current_iteration)
         iteration_counter += 1
-    return solution, abs_error
+    return solution, current_iteration['error']
