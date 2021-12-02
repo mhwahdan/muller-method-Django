@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from calculator.muller_method import evaluate, refactor
 
 
@@ -13,7 +12,7 @@ def index(request):
 def calculate(request):
     equation = refactor(request.GET['formula'])
     try:
-        solution = evaluate(
+        solution, error = evaluate(
             p0=float(request.GET["point1"]),
             p1=float(request.GET["point2"]),
             p2=float(request.GET["point3"]),
@@ -28,7 +27,7 @@ def calculate(request):
         "solution": solution,
         "equation": request.GET["formula"].lower(),
         "Answer": solution[len(solution) - 1]["p3"] if solution != {} else None,
-        "Error": solution[len(solution) - 1]["error"] if solution != {} else None,
+        "Error": error if solution != {} else None,
         "number": len(solution),
         "has_solution": solution != {}
     }

@@ -24,48 +24,68 @@ def get_sign(number):
             return -1
 
 
+def round_complex(number: complex, precision: int):
+    return round(number.real, precision) + round(number.imag, precision) * 1j
+
+
+def complex_tostring(number: complex):
+    return '(' + str(number.real) + ('+' if number.imag > 0 else '-') + str(number.imag) + 'j)'
+
+
+def adjust_complex(number: complex):
+    return number.real if number.imag == 0 else number
+
+
 def iterate(p0: complex, p1: complex, p2: complex, equation, precision: int, iteration_number: int):
     h0 = p1 - p0
     h1 = p2 - p1
-    h0, h1 = [round(x.real, precision) + round(x.imag, precision) * 1j for x in [h0, h1]]
-    str_p0, str_p1, str_p2 = ['(' + str(x.real) + ('+' if x.imag > 0 else '-') + str(x.imag) + 'j)'
-                              for x in [p0, p1, p2]]
-    fp0, fp1, fp2 = [eval(equation.replace('$', x)) for x in [str_p0, str_p1, str_p2]]
-    fp0, fp1, fp2 = [round(x.real, precision) + round(x.imag, precision) * 1j for x in [fp0, fp1, fp2]]
+    h0 = round_complex(h0, precision)
+    h1 = round_complex(h1, precision)
+    fp0, fp1, fp2 = [
+        eval(equation.replace('$', complex_tostring(x))) for x in [p0, p1, p2]
+    ]
+    fp0 = round_complex(fp0, precision)
+    fp1 = round_complex(fp1, precision)
+    fp2 = round_complex(fp2, precision)
     sigma0 = (fp1 - fp0) / h0
     sigma1 = (fp2 - fp1) / h1
-    sigma0, sigma1 = [round(x.real, precision) + round(x.imag, precision) * 1j for x in [sigma0, sigma1]]
+    sigma0 = round_complex(sigma0, precision)
+    sigma1 = round_complex(sigma1, precision)
     a = (sigma1 - sigma0) / (h1 + h0)
     b = a * h1 + sigma1
     c = fp2
-    a, b = [round(x.real, precision) + round(x.imag, precision) * 1j for x in [a, b]]
+    a = round_complex(a, precision)
+    b = round_complex(b, precision)
     z = sqrt(b ** 2 - 4 * a * c)
-    z = round(z.real, precision) + round(z.imag, precision) * 1j
+    z = round_complex(z, precision)
     p3 = p2 - ((2 * c) / (b + z * get_sign(b)))
-    p3 = round(p3.real, precision) + round(p3.imag, precision) * 1j
-    str_p3 = '(' + str(p3.real) + ('+' if p3.imag > 0 else '-') + str(p3.imag) + 'j)'
-    fp3 = eval(equation.replace('$', str_p3))
-    fp3 = round(fp3.real, precision) + round(fp3.imag, precision) * 1j
-    error = round(sqrt((p3.real - p2.real) ** 2 + (p3.imag - p2.imag) ** 2).real, precision)
+    p3 = round_complex(p3, precision)
+    fp3 = eval(equation.replace('$', complex_tostring(p3)))
+    fp3 = round_complex(fp3, precision)
+    error = round(
+        sqrt((p3.real - p2.real) ** 2 + (p3.imag - p2.imag) ** 2).real,
+        precision
+    )
+    abs_error = round(abs(sqrt(fp3.real ** 2 + fp3.imag ** 2).real), precision)
     return {
-        "h0": h0.real if h0.imag == 0 else h0,
-        "h1": h1.real if h1.imag == 0 else h0,
-        "sigma0": sigma0.real if sigma0.imag == 0 else sigma0,
-        "sigma1": sigma1.real if sigma1.imag == 0 else sigma1,
-        "p0": p0.real if p0.imag == 0 else p0,
-        "p1": p1.real if p1.imag == 0 else p1,
-        "p2": p2.real if p2.imag == 0 else p2,
-        "p3": p3.real if p3.imag == 0 else p3,
-        "fp0": fp0.real if fp0.imag == 0 else fp0,
-        "fp1": fp1.real if fp1.imag == 0 else fp1,
-        "fp2": fp2.real if fp2.imag == 0 else fp2,
-        "fp3": fp3.real if fp3.imag == 0 else fp3,
-        "a": a.real if a.imag == 0 else a,
-        "b": b.real if b.imag == 0 else b,
-        "c": c.real if c.imag == 0 else c,
+        "h0": adjust_complex(h0),
+        "h1": adjust_complex(h1),
+        "sigma0": adjust_complex(sigma0),
+        "sigma1": adjust_complex(sigma1),
+        "p0": adjust_complex(p0),
+        "p1": adjust_complex(p1),
+        "p2": adjust_complex(p2),
+        "p3": adjust_complex(p3),
+        "fp0": adjust_complex(fp0),
+        "fp1": adjust_complex(fp1),
+        "fp2": adjust_complex(fp2),
+        "fp3": adjust_complex(fp3),
+        "a": adjust_complex(a),
+        "b": adjust_complex(b),
+        "c": adjust_complex(c),
         "error": error,
         "number": iteration_number
-    }
+    }, abs_error
 
 
 def refactor(equation):
@@ -96,7 +116,7 @@ def refactor(equation):
 
 def evaluate(p0: complex, p1: complex, p2: complex, equation, error: float, iterations: int, precision: int):
     iteration_counter = 1
-    current_iteration = iterate(
+    current_iteration, abs_error = iterate(
         p0=p0,
         p1=p1,
         p2=p2,
@@ -106,11 +126,11 @@ def evaluate(p0: complex, p1: complex, p2: complex, equation, error: float, iter
     )
     solution = [current_iteration]
     iteration_counter = 2
-    while iteration_counter <= iterations and current_iteration["error"] > error:
+    while iteration_counter <= iterations and abs_error > error and current_iteration["p3"] != current_iteration["p2"]:
         p0 = current_iteration["p1"]
         p1 = current_iteration["p2"]
         p2 = current_iteration["p3"]
-        current_iteration = iterate(
+        current_iteration, abs_error = iterate(
             p0=p0,
             p1=p1,
             p2=p2,
@@ -120,4 +140,4 @@ def evaluate(p0: complex, p1: complex, p2: complex, equation, error: float, iter
         )
         solution.append(current_iteration)
         iteration_counter += 1
-    return solution
+    return solution, abs_error
