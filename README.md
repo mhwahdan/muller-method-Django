@@ -113,6 +113,29 @@ when the user enters the url of the software in his browser, an HTTP get request
 
 After the user enters the data and clicks submission an Ajax request is sent to the server which will read the inputs, find the roots and renders the steps and draws the function as html and returns them as HTTP response which is then rendered by the browser without reloading the page.
 <p align='center'>
-<img src='https://github.com/mhwahdan/muller-method-Django/blob/main/flowchart.png'></img>
+<img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/results.png'></img></p>
+# what about other developers
+the above example works fine for end users who just want to solve an equation, but what about other developers or enterprises that would like to use our software as a service which can be easily integrated with their softwares and systems. thats why we made a REST api for our application
+# what is an API?
+An application programming interface (API) is a connection between computers or between computer programs. It is a type of software interface, offering a service to other pieces of software.A document or standard that describes how to build or use such a connection or interface is called an API specification. A computer system that meets this standard is said to implement or expose an API. The term API may refer either to the specification or to the implementation.
+# what is REST api?
+REST has been employed throughout the software industry and is a widely accepted set of guidelines for creating stateless, reliable web APIs. A web API that obeys the REST constraints is informally described as RESTful. RESTful web APIs are typically loosely based on HTTP methods to access resources via URL-encoded parameters and the use of JSON or XML to transmit data
+# how does the api work
+all you need to do as devloper is sending an HTTP request to the server with the following format
+```html
+http://<application url>/api/muller_method/<equation>/<x0>/<x1>/<x2>/<error margin>/<maximium number of iterations>?format=<format you want to receive in>
+```
+example:
+if you enter in your browser http://muller-calculator.herokuapp.com/api/muller_method/x%5E2-cos(x)/1/2/3/0.001/5?format=xml your will have the following result
+<p align='center'>
+    <img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/api.png'></img>
 </p>
-
+<img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/api.png'></img>
+example:
+if you use the cli of your OS you will get the same outcome which can be easily handled by any program
+```bash
+curl http://muller-calculator.herokuapp.com/api/muller_method/x%5E2-cos(x)/1/2/3/0.001/5?format=xml
+```
+<p align='center'>
+    <img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/curl.png'></img>
+</p>
