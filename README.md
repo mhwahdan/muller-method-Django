@@ -122,6 +122,7 @@ An application programming interface (API) is a connection between computers or 
 REST has been employed throughout the software industry and is a widely accepted set of guidelines for creating stateless, reliable web APIs. A web API that obeys the REST constraints is informally described as RESTful. RESTful web APIs are typically loosely based on HTTP methods to access resources via URL-encoded parameters and the use of JSON or XML to transmit data
 # how does the api work
 all you need to do as devloper is sending an HTTP request to the server with the following format
+
 ```html
 http://<application url>/api/muller_method/<equation>/<x0>/<x1>/<x2>/<error margin>/<maximium number of iterations>?format=<format you want to receive in>
 ```
@@ -132,6 +133,7 @@ if you enter in your browser http://muller-calculator.herokuapp.com/api/muller_m
 </p>
 example:
 if you use the cli of your OS you will get the same outcome which can be easily handled by any program
+
 ```bash
 curl http://muller-calculator.herokuapp.com/api/muller_method/x%5E2-cos(x)/1/2/3/0.001/5?format=xml
 ```
