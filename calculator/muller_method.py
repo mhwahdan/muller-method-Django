@@ -69,7 +69,7 @@ def iterate(p0: complex, p1: complex, p2: complex, equation, precision: int, ite
 
 
 def refactor(equation):
-    equation = list(equation.lower().replace('log', 'l').replace('ln', 'z').replace('x', '$'))
+    equation = list(equation.lower().replace('log', 'l').replace('ln', 'z').replace('arc', 'a').replace('x', '$'))
     for i in range(0, len(equation)):
         if i != 0 and equation[i] in blacklist and equation[i - 1] != '*' and (
                 equation[i - 1].isnumeric() or equation[i - 1] == ')'):

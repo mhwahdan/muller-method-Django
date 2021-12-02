@@ -1,140 +1,170 @@
-           <div class="container" style="margin-top: 5%;">
+           <div class="container" style="margin-top: 5%;overflow-x: auto;">
             <table style="margin: auto;">
                 <tr>
-                    <td class="cell"><input class="btn btn-primary" id="btn" type="button" value="1"
+                    <td class="cell"><input class="btn " id="btn" type="button" value="1"
                                             OnClick="calc.display.value+='1'">
                     </td>
 
-                    <td class="cell"><input class="btn btn-primary" id="btn" type="button" value="2"
+                    <td class="cell"><input class="btn " id="btn" type="button" value="2"
                                             OnClick="calc.display.value+='2'">
                     </td>
 
-                    <td class="cell"><input class="btn btn-primary" id="btn" type="button" value="3"
+                    <td class="cell"><input class="btn " id="btn" type="button" value="3"
                                             OnClick="calc.display.value+='3'">
                     </td>
 
-                    <td class="cell"><input class="btn btn-primary" id="btn" type="button" value="C"
-                                            OnClick="calc.display.value=''">
-                    </td>
-                    <td colspan="2"><input id="btn" class="btn btn-primary" type="button" value="="
+
+                    <td class="cell" colspan="2"><input id="btn" class="btn " type="button" value="="
                                            OnClick="calc.display.value+='='">
+                    </td>
+                    <td class="cell"><input id="btn" class="btn " type="button" value="sin("
+                                            OnClick="calc.display.value+='sin('">
+                    </td>
+                                        <td class="cell"><input id="btn" class="btn " type="button" value="arcsin("
+                                            OnClick="calc.display.value+='arcsin('">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="4"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="4"
                                             OnClick="calc.display.value+='4'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="5"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="5"
                                             OnClick="calc.display.value+='5'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="6"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="6"
                                             OnClick="calc.display.value+='6'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="-"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="-"
                                             OnClick="calc.display.value+='-'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="%"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="%"
                                             OnClick="calc.display.value+='%'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="cos("
+                    <td class="cell"><input id="btn" class="btn " type="button" value="cos("
                                             OnClick="calc.display.value+='cos('">
+                    </td>
+                                        <td class="cell"><input id="btn" class="btn " type="button" value="arccos("
+                                            OnClick="calc.display.value+='arccos('">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="7"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="7"
                                             OnClick="calc.display.value+='7'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="8"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="8"
                                             OnClick="calc.display.value+='8'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="9"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="9"
                                             OnClick="calc.display.value+='9'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="*"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="*"
                                             OnClick="calc.display.value+='*'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="n!"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="n!"
                                             OnClick="calc.display.value+='!'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="sin("
-                                            OnClick="calc.display.value+='sin('">
+
+                    <td class="cell"><input id="btn" class="btn " type="button" value="tan("
+                                            OnClick="calc.display.value+='tan('">
+                    </td>
+                                        <td class="cell"><input id="btn" class="btn " type="button" value="arctan("
+                                            OnClick="calc.display.value+='arctan('">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="."
+                    <td class="cell"><input id="btn" class="btn " type="button" value="."
                                             OnClick="calc.display.value+='.'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="0"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="0"
                                             OnClick="calc.display.value+='0'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="&#x3C4;"
-                                            OnClick="calc.display.value+='&#x3C4;'">
+                    <td class="cell"><input id="btn" class="btn " type="button" value="C"
+                                            OnClick="calc.display.value+=''">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="+"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="+"
                                             OnClick="calc.display.value+='+'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="/"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="/"
                                             OnClick="calc.display.value+='/'">
                     </td>
-
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="tan("
-                                            OnClick="calc.display.value+='tan('">
+                    <td class="cell"><input id="btn" class="btn " type="button" value="sinh("
+                                            OnClick="calc.display.value+='sinh('">
+                    </td>
+                    <td class="cell"><input id="btn" class="btn " type="button" value="arcsinh("
+                                            OnClick="calc.display.value+='arcsinh('">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="e"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="e"
                                             OnClick="calc.display.value+='e'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="&#x3C0;"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="&#x3C0;"
                                             OnClick="calc.display.value+='&#x3C0;'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="^"
+                    <td class="cell">
+                    <input class="btn " id="btn" type="button" value="&#x3C4;"
+                                            OnClick="calc.display.value='&#x3C4;'">
+                    </td>
+                                                            <td class="cell">
+                        <input id="btn" class="btn " type="button" value="^"
                                             OnClick="calc.display.value+='^'">
                     </td>
 
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="("
-                                            OnClick="calc.display.value+='('">
+                                        <td>
+                        <input id="btn" type="button" class="btn " value="sqrt("
+                               OnClick="calc.display.value+='sqrt90'">
                     </td>
-
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value=")"
-                                            OnClick="calc.display.value+=')'">
+                                        <td class="cell"><input id="btn" class="btn " type="button" value="cosh("
+                                            OnClick="calc.display.value+='cosh('">
                     </td>
-
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="log("
-                                            OnClick="calc.display.value+='log('">
+                                                            <td class="cell"><input id="btn" class="btn " type="button" value="arccosh("
+                                            OnClick="calc.display.value+='arccosh('">
                     </td>
                 </tr>
 
                 <tr>
-                    <td colspan="2"><input id="btn" class="btn btn-primary" type="button" value="X"
+                    <td class="cell"><input id="btn" class="btn " type="button" value="X"
                                            OnClick="calc.display.value+='X'">
                     </td>
-                    <td colspan="3">
-                        <input id="btn" type="button" class="btn btn-primary" value="sqrt("
-                               OnClick="calc.display.value+='sqrt90'">
+
+                                        <td class="cell"><input id="btn" class="btn " type="button" value="log("
+                                            OnClick="calc.display.value+='log('">
                     </td>
-                    <td class="cell"><input id="btn" class="btn btn-primary" type="button" value="ln("
+                    <td class="cell"><input id="btn" class="btn " type="button" value="ln("
                                             OnClick="calc.display.value+='ln('">
+                    </td>
+                                        <td class="cell"><input id="btn" class="btn " type="button" value="("
+                                            OnClick="calc.display.value+='('">
+                    </td>
+
+                    <td class="cell"><input id="btn" class="btn " type="button" value=")"
+                                            OnClick="calc.display.value+=')'">
+                    </td>
+                                        <td class="cell"><input id="btn" class="btn " type="button" value="tanh("
+                                            OnClick="calc.display.value+='tanh('">
+                    </td>
+                                                        <td class="cell"><input id="btn" class="btn " type="button" value="arctanh("
+                                            OnClick="calc.display.value+='arctanh('">
                     </td>
                 </tr>
             </table>
