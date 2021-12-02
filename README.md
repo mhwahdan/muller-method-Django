@@ -130,12 +130,22 @@ if you enter in your browser http://muller-calculator.herokuapp.com/api/muller_m
 <p align='center'>
     <img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/api.png'></img>
 </p>
-<img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/api.png'></img>
 example:
 if you use the cli of your OS you will get the same outcome which can be easily handled by any program
 ```bash
 curl http://muller-calculator.herokuapp.com/api/muller_method/x%5E2-cos(x)/1/2/3/0.001/5?format=xml
 ```
+
 <p align='center'>
     <img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/curl.png'></img>
 </p>
+
+# purpose of the program
+submitting a pre-final project for the numerical method project in AASTMT university college of engineering department of computer engineering
+
+# group memebers
+- Moustafa mohamed wahdan
+- Toqa Mohamed Hosni
+- Ahmed Tarek Soliman
+- Mohamed Bassel
+- Mohamed Hisham El Kafrawy
