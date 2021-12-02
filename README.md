@@ -45,7 +45,7 @@ problem : find a root for the equation F(x) given 3 initial points x0, x1, x2 wi
 - steps
     1. Start
     2. Define list of iterations
-    3. Define n <- 0
+    3. Define n <- 0, h0, h1, f0, f1, f2, Ϭ0, Ϭ1, a, b, c x3, f3, ε
     4. Read values of F(x), x0, x1, x2, error, N
     5. h0 <- x1 - x0
     6. h1 <- x2 - x1
