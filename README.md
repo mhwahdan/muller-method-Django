@@ -10,6 +10,8 @@ Muller's method is a root-finding algorithm, a numerical method for solving equa
 <img  src='https://media.geeksforgeeks.org/wp-content/uploads/Muller-Method.png'></img>
 </p>
 
+# speed of convergence
+The order of convergence of Muller's method is approximately 1.84. This can be compared with 1.62 for the secant method and 2 for Newton's method. So, the secant method makes less progress per iteration than Muller's method and Newton's method makes more progress.
 
 # problem definition and algorithm
 problem : find a root for the equation F(x) given 3 initial points x0, x1, x2 with relative error tolerance ε and with maximimum of N iterations, then plot the function f(x), for each iteration you must find the relative error by using the formula ((x3 - x2)/x3) * 100%
@@ -66,5 +68,7 @@ problem : find a root for the equation F(x) given 3 initial points x0, x1, x2 wi
         - return to step iv
     20. return list of iterations
     21. plot F(x)
-# speed of convergence
-The order of convergence of Muller's method is approximately 1.84. This can be compared with 1.62 for the secant method and 2 for Newton's method. So, the secant method makes less progress per iteration than Muller's method and Newton's method makes more progress.
+# flow chart
+<p align='center'>
+<img src='https://github.com/mhwahdan/muller-method-Django/blob/main/flowchart.png'></img>
+</p>
