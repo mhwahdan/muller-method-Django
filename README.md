@@ -72,3 +72,39 @@ problem : find a root for the equation F(x) given 3 initial points x0, x1, x2 wi
 <p align='center'>
 <img src='https://github.com/mhwahdan/muller-method-Django/blob/main/flowchart.png'></img>
 </p>
+
+# programming languages used
+- Python: for backend and API design
+- HTML (Hyper text markup language): for GUI design
+- Css (Cascading style sheets): for GUI design
+- java script: for making GUI dynamic and connecting the GUI with the backend
+
+# technologies
+- Django
+- bootstrap
+- js libraries: for plotting the function graph
+    - math.js
+    - plotly.js
+- Jquery
+- AJAX
+# what is Django?
+Django is a Python-based free and open-source web framework that follows the model–template–views (MTV) architectural pattern. It is maintained by the Django Software Foundation (DSF), an independent organization established in the US as a 501(c)(3) non-profit.
+# what is bootstrap?
+Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS and (optionally) JavaScript-based design templates for typography, forms, buttons, navigation, and other interface component
+# what is Jquery?
+jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax. It is free, open-source software using the permissive MIT License. As of May 2019, jQuery is used by 73% of the 10 million most popular websites. Web analysis indicates that it is the most widely deployed JavaScript library by a large margin, having at least 3 to 4 times more usage than any other JavaScript library.
+# what is math.js?
+Math.js is an extensive math library for JavaScript and Node.js. It features a flexible expression parser with support for symbolic computation, comes with a large set of built-in functions and constants, and offers an integrated solution to work with different data types like numbers, big numbers, complex numbers, fractions, units, and matrices. Powerful and easy to use.
+# what is plotly?
+Built on top of d3.js and stack.gl, Plotly.js is a high-level, declarative charting library. plotly.js ships with over 40 chart types, including 3D charts, statistical graphs, and SVG maps.
+# what is Ajax?
+Ajax (short for "Asynchronous JavaScript and XML") is a set of web development techniques that uses various web technologies on the client-side to create asynchronous web applications. With Ajax, web applications can send and retrieve data from a server asynchronously (in the background) without interfering with the display and behaviour of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows web pages and, by extension, web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly utilize JSON instead of XML.
+# Program Architicture
+Since our software is a web application powered by django framework, it uses the MTV(Model, Template, View) architecture
+<p align='center'>
+<img src='https://miro.medium.com/max/1400/0*8ZFh-CsrMi7bQG0O.jpg'></img>
+</p>
+# how does the program work in simple terms
+when the user enters the url of the software in his browser, an HTTP get request is sent to the server hosting the application where the url is analyzed and routed to the correct view which renders the template and returns it to the client brwoser as an HTTP response which is rendered by the client browser HTTP renderer and dispalyed in the browser window.
+
+After the user enters the data and clicks submission an Ajax request is sent to the server which will read the inputs, find the roots and renders the steps and draws the function as html and returns them as HTTP response which is then rendered by the browser without reloading the page.
