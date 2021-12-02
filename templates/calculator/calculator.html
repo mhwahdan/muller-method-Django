@@ -1,9 +1,9 @@
 <div class="container-fluid" style="margin-top: 5%;">
-       <form id="calc" method="get" action="{% url 'calculate' %}">
-           <div class="container">
+    <form id="calc" method="get" action="{% url 'calculate' %}">
+        <div class="container">
             <input type="text" placeholder="enter the equation here" name="formula" class="form-control" id="display">
-           </div>
-{% include 'calculator/keypad.html' %}
+        </div>
+        {% include 'calculator/keypad.html' %}
         <div class="row" style="margin-top: 5%;">
             <div class="col-6">
                 <label for="precision" class="form-label">decimal precision</label>
@@ -14,7 +14,7 @@
                 <input type="number" name="iterations" class="form-control" id="precision">
             </div>
         </div>
-               <div class="row" style="margin-top: 2%;">
+        <div class="row" style="margin-top: 2%;">
             <div class="col-6">
                 <label for="error" class="form-label">error margin (&#8455;)</label>
                 <input type="number" name="error" step="0.000001" class="form-control" id="error">
@@ -35,14 +35,14 @@
                     </div>
                 </div>
             </div>
-               </div>
         </div>
-<div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 3%;">
-                <button type="submit" class="btn btn-primary" id="calculate">
-                evaluate
-            </button>
 </div>
-    </form>
+<div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 3%;">
+    <button type="submit" class="btn btn-primary" id="calculate">
+        evaluate
+    </button>
+</div>
+</form>
 </div>
 <div id="Answer">
 </div>

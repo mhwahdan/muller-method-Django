@@ -1,4 +1,5 @@
 from django.urls import path
+
 from API import views
 
 base_str = 'muller_method/<str:formula>/<str:point1>/<str:point2>/<str:point3>'

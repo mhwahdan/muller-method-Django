@@ -70,23 +70,27 @@ def iterate(p0: complex, p1: complex, p2: complex, equation, precision: int, ite
 
 def refactor(equation):
     equation = list(equation.lower().replace('log', 'l').replace('ln', 'z').replace('arc', 'a').replace('x', '$'))
-    for i in range(0, len(equation)):
-        if i != 0 and equation[i] in blacklist and equation[i - 1] != '*' and (
-                equation[i - 1].isnumeric() or equation[i - 1] == ')'):
-            equation.insert(i, '*')
+    i = 0
+    while i < len(equation):
+        if i != 0 and (equation[i] in blacklist) and (equation[i - 1] != '*'):
+            if equation[i - 1].isnumeric() or equation[i - 1] == ')':
+                equation.insert(i, '*')
         if equation[i] == '!' and equation[i + 1] != '(':
             equation.insert(i + 1, '(')
             counter = i + 2
             while equation[counter].isnumeric() or equation[counter] != ')':
                 counter += 1
             equation.insert(counter, ')')
+        i += 1
     for i in range(0, len(equation)):
         if equation[i] in substitution.keys():
             equation[i] = substitution[equation[i]]
-    for i in range(1, len(equation)):
+    i = 0
+    while i < len(equation):
         if equation[i] in substitution.values() and (equation[i - 1] in substitution.values()
                                                      or equation[i - 1] == 'e'):
             equation.insert(i, '*')
+        i += 1
     return ''.join(equation).replace('^', '**')
 
 

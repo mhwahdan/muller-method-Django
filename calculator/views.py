@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from calculator.muller_method import evaluate, refactor
 
+
 # Create your views here.
 
 

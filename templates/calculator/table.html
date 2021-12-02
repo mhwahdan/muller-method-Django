@@ -1,51 +1,51 @@
 <div class="container">
-<div class="table-responsive" style="margin: 2%;font-size: 1vw;">
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">iteration</th>
-            <th scope="col">p0</th>
-            <th scope="col">p1</th>
-            <th scope="col">p2</th>
-            <th scope="col">fp0</th>
-            <th scope="col">fp1</th>
-            <th scope="col">fp2</th>
-            <th scope="col">h0</th>
-            <th scope="col">h1</th>
-            <th scope="col">Ϭ0</th>
-            <th scope="col">Ϭ1</th>
-            <th scope="col">a</th>
-            <th scope="col">b</th>
-            <th scope="col">c</th>
-            <th scope="col">p3</th>
-            <th scope="col">fp3</th>
-            <th scope="col">ℇ</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for iteration in solution %}
-
+    <div class="table-responsive" style="margin: 2%;font-size: 1vw;">
+        <table class="table table-bordered">
+            <thead>
             <tr>
-                <th scope="row">{{ iteration.number }}</th>
-                <td>{{ iteration.p0 }}</td>
-                <td>{{ iteration.p1 }}</td>
-                <td>{{ iteration.p2 }}</td>
-                <td>{{ iteration.fp0 }}</td>
-                <td>{{ iteration.fp1 }}</td>
-                <td>{{ iteration.fp2 }}</td>
-                <td>{{ iteration.h0 }}</td>
-                <td>{{ iteration.h1 }}</td>
-                <td>{{ iteration.sigma0 }}</td>
-                <td>{{ iteration.sigma1 }}</td>
-                <td>{{ iteration.a }}</td>
-                <td>{{ iteration.b }}</td>
-                <td>{{ iteration.c }}</td>
-                <td>{{ iteration.p3 }}</td>
-                <td>{{ iteration.fp3 }}</td>
-                <td>{{ iteration.error }}</td>
+                <th scope="col">iteration</th>
+                <th scope="col">p0</th>
+                <th scope="col">p1</th>
+                <th scope="col">p2</th>
+                <th scope="col">fp0</th>
+                <th scope="col">fp1</th>
+                <th scope="col">fp2</th>
+                <th scope="col">h0</th>
+                <th scope="col">h1</th>
+                <th scope="col">Ϭ0</th>
+                <th scope="col">Ϭ1</th>
+                <th scope="col">a</th>
+                <th scope="col">b</th>
+                <th scope="col">c</th>
+                <th scope="col">p3</th>
+                <th scope="col">fp3</th>
+                <th scope="col">ℇ</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            {% for iteration in solution %}
+
+                <tr>
+                    <th scope="row">{{ iteration.number }}</th>
+                    <td>{{ iteration.p0 }}</td>
+                    <td>{{ iteration.p1 }}</td>
+                    <td>{{ iteration.p2 }}</td>
+                    <td>{{ iteration.fp0 }}</td>
+                    <td>{{ iteration.fp1 }}</td>
+                    <td>{{ iteration.fp2 }}</td>
+                    <td>{{ iteration.h0 }}</td>
+                    <td>{{ iteration.h1 }}</td>
+                    <td>{{ iteration.sigma0 }}</td>
+                    <td>{{ iteration.sigma1 }}</td>
+                    <td>{{ iteration.a }}</td>
+                    <td>{{ iteration.b }}</td>
+                    <td>{{ iteration.c }}</td>
+                    <td>{{ iteration.p3 }}</td>
+                    <td>{{ iteration.fp3 }}</td>
+                    <td>{{ iteration.error }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
