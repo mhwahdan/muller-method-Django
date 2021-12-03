@@ -13,6 +13,16 @@ Muller's method is a root-finding algorithm, a numerical method for solving equa
 # speed of convergence
 The order of convergence of Muller's method is approximately 1.84. This can be compared with 1.62 for the secant method and 2 for Newton's method. So, the secant method makes less progress per iteration than Muller's method and Newton's method makes more progress.
 
+# advantages of muller method
+1. converges faster than secant method and less than newton method.
+2. no need to know the derivative.
+3. applicability to complex valued functions as well. due to the presence of root(b^2 − 4ac).
+
+# disadvatages of muller method
+1. 3 initial points are needed (x0, x1, x2).
+2. F(x0), F(x1), F(x2) must be different else the algorithm fails.
+3. if F(x0), F(x1), F(x2) are on the same line the secant method will converge faster and easier.
+
 # problem definition and algorithm
 problem : find a root for the equation F(x) given 3 initial points x0, x1, x2 with relative error tolerance ε and with maximimum of N iterations, then plot the function f(x), for each iteration you must find the relative error by using the formula ((x3 - x2)/x3) * 100%
 
@@ -111,9 +121,14 @@ when the user enters the url of the software in his browser, an HTTP get request
 <img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/home%20page.png'></img>
 </p>
 
-After the user enters the data and clicks submission an Ajax request is sent to the server which will read the inputs, find the roots and renders the steps and draws the function as html and returns them as HTTP response which is then rendered by the browser without reloading the page.
+After the user enters the data and clicks submission an Ajax request is sent to the server which will read the inputs, find the roots and renders the steps and draws the function as html and returns them as HTTP response which is then rendered by the browser without reloading the page nd the function is plotted using math.js and plotly.js.
 <p align='center'>
 <img src='https://github.com/mhwahdan/muller-method-Django/blob/main/screenshots/results.png'></img></p>
+
+# why use python for solving and java script for drawing?
+- python is better for solving the equation in the backend as its very dynamic and supports complex arthimatic using its cmath module, please refer to Cmath module documentation for more info https://docs.python.org/3/library/cmath.html.
+- java script is better for plotting because it runs on the user front end and great in dynamic graphic design which will make the process of drawing use the client personal hardware not the main server resources which will make the service run much faster and more efficient.
+
 # what about other developers
 the above example works fine for end users who just want to solve an equation, but what about other developers or enterprises that would like to use our software as a service which can be easily integrated with their softwares and systems. thats why we made a REST api for our application
 # what is an API?
@@ -145,9 +160,20 @@ curl http://muller-calculator.herokuapp.com/api/muller_method/x%5E2-cos(x)/1/2/3
 # purpose of the program
 submitting a pre-final project for the numerical method project in AASTMT university college of engineering department of computer engineering
 
+# view our product from any device
+https://muller-calculator.herokuapp.com/
+
 # group memebers
 - Moustafa mohamed wahdan
 - Toqa Mohamed Hosni
 - Ahmed Tarek Soliman
 - Mohamed Bassel
 - Mohamed Hisham El Kafrawy
+
+# resources and references
+- muller method theory : http://kilyos.ee.bilkent.edu.tr/~microwave/programs/utilities/numeric1/infoMuller.htm
+- math.js library documentation : https://mathjs.org/
+- ploly.js library documnetation : https://plotly.com/javascript/
+- django frmework : https://www.djangoproject.com/
+- cmath python module : https://docs.python.org/3/library/cmath.html
+- Ajax : https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
