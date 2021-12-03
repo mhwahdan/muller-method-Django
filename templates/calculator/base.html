@@ -14,39 +14,9 @@
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 </head>
 <body style="min-height: 100vh;">
-<nav class="navbar navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static '/images/aastlogo.png' %}" alt="" width="45" height="45"
-                 class="d-inline-block align-text-top">
-            AASTMT
-        </a>
-    </div>
-</nav>
+{% include 'calculator/header.html' %}
 {% block content %}{% endblock %}
-
-
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-6 d-flex align-items-center">
-        <a href="{% url 'home' %}" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-        </a>
-        <span class="text-muted">© 2021 AASTMT, Numerical methods project, DR.Ahmed Omar Hamed Mohamed</span>
-    </div>
-    <div class="col-md-4 d-flex">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static '/images/aastlogo.png' %}" alt="" width="45" height="45"
-                     class="d-inline-block align-text-top">
-            </a>
-            <a data-bs-toggle="modal" href="#participate" role="button">Team github</a>
-
-
-        </div>
-    </div>
-</footer>
-
-
-<!-- Modal -->
+{% include 'calculator/footer.html' %}
 {% include 'calculator/participate.html' %}
 <script src="{% static 'js/custom.js' %}"></script>
 </body>
