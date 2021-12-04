@@ -29,6 +29,7 @@ function draw(axis, equation) {
             try {
                 // compile the expression once
                 const expr = math.compile(equation.toLowerCase());
+                console.log(expr);
                 // evaluate the expression repeatedly for different values of x
                 const xValues = math.range(axis - 50, axis + 50, 0.0001).toArray()
                 const yValues = xValues.map(function (x) {
