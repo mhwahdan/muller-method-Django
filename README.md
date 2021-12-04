@@ -164,10 +164,11 @@ submitting a pre-final project for the numerical method project in AASTMT univer
 https://muller-calculator.herokuapp.com/
 
 # group memebers
+- Mohamed Bassel
 - Moustafa mohamed wahdan
 - Toqa Mohamed Hosni
 - Ahmed Tarek Soliman
-- Mohamed Bassel
+- Nour Hossam
 - Mohamed Hisham El Kafrawy
 
 # resources and references
